@@ -1,0 +1,35 @@
+{
+  "welcome": "Welcome",
+  "menu": "Menu",
+  "logout": "Logout",
+  "login": "Login",
+  "home": "Home",
+  "oue_special_menu": "Our Special Menu",
+  "my_orders": "My Orders",
+  "enjoy_your_summer_with_us": "Enjoy Your Summer With Us",
+  "explore_full_menu": " Explore Full Menu",
+  "social_connect": "Social Connect",
+  "get_all_the_freshness_no colors...": "Get all the freshness — no colors, no artificial flavors",
+  "created_by_glossyCode": "Created by GlossyCode. All rights reserved",
+
+  "navpart": {
+    "Home": "Home",
+    "About": "About",
+    "My Orders": "My Order"
+  },
+
+  "categoriespart": {
+    "Hot Drinks": "Hot Drinks",
+    "Cold Drinks": "Cold Drinks",
+    "Today's Drinks": "Today's Drinks",
+    "Special Drinks": "Special Drinks",
+    "Fresh Drinks": "Fresh Drinks",
+    "Breakfast": "Breakfast",
+    "Lunch": "Lunch",
+    "Dinner": "Dinner",
+    "Mexican": "Mexican",
+    "Italian": "Italian",
+    "Desserts": "Desserts",
+    "Drinks": "Drinks"
+  }
+}

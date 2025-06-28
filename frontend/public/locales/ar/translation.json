@@ -1,0 +1,34 @@
+{
+  "welcome": "مرحبا",
+  "menu": "القائمة",
+  "logout": "خروج",
+  "login": "تسجيل الدخول",
+  "home": "الصفحة الرئيسية",
+  "oue_special_menu": "قائمتنا الخاصة",
+  "my_orders": "طلبات",
+  "enjoy_your_summer_with_us": "استمتع بصيفك معنا",
+  "explore_full_menu": "انظر القائمة الكاملة",
+  "social_connect": "وسائل التواصل الاجتماعي",
+  "get_all_the_freshness_no colors...": "احصل على كل النضارة - بدون ألوان، بدون نكهات اصطناعية",
+  "created_by_glossyCode": "تم إنشاؤه بواسطة GlossyCode. جميع الحقوق محفوظة",
+
+  "navpart": {
+    "Home": "رئيسي",
+    "About": "معلومات عنا",
+    "My Orders": "طلبات"
+  },
+  "categoriespart": {
+    "Hot Drinks": "المشروبات الساخنة",
+    "Cold Drinks": "المشروبات الباردة",
+    "Today's Drinks": "مشروبات اليوم",
+    "Special Drinks": "مشروبات خاصة",
+    "Fresh Drinks": "مشروبات طازجة",
+    "Breakfast": "فطور",
+    "Lunch": "غداء",
+    "Dinner": "عشاء",
+    "Mexican": "مكسيكي",
+    "Italian": "إيطالي",
+    "Desserts": "حلويات",
+    "Drinks": "مشروبات"
+  }
+}
