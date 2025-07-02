@@ -120,7 +120,7 @@ const OurMenuHome = () => {
                     <div className="bg-amber-100/10 backdrop-blur-sm px-3 py-1 rounded-2xl shadow-lg">
                       <span className="text-xl font-bold text-amber-300 font-dancingscript">
                         {/* ₹{Number(item.price).toFixed(2)} */}
-                        IQD{Number(item.price).toFixed(2)}
+                        {Number(item.price).toFixed(2)}
                       </span>
                     </div>
 
