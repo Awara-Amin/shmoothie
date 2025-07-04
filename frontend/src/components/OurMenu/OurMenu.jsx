@@ -30,7 +30,10 @@ const OurMenu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/items")
+        const res = await axios.get(
+          "https://shmoothie-backend.onrender.com/api/items"
+        )
+        // const res = await axios.get("http://localhost:4000/api/items")
         const byCategory = res.data.reduce((acc, item) => {
           const cat = item.category || "Uncategorized"
           acc[cat] = acc[cat] || []

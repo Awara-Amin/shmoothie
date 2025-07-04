@@ -4,7 +4,8 @@ import { Link } from "react-router-dom"
 import { FaMinus, FaPlus, FaTrash, FaTimes } from "react-icons/fa"
 
 // Base URL for serving uploaded images
-const API_URL = "http://localhost:4000"
+// const API_URL = "http://localhost:4000"
+const API_URL = "https://shmoothie-backend.onrender.com"
 
 const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity, totalAmount } = useCart()

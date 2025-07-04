@@ -63,9 +63,15 @@ const AddItems = () => {
         if (key === "preview") return
         payload.append(key, val)
       })
-      const res = await axios.post("http://localhost:4000/api/items", payload, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
+
+      // const res = await axios.post("http://localhost:4000/api/items", payload, {
+      const res = await axios.post(
+        "https://shmoothie-backend.onrender.com/api/items",
+        payload,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      )
       console.log("Created Item:", res.data)
       setFormData({
         name: "",
