@@ -48,9 +48,9 @@ function App() {
       <Route path="/" element={<Menu />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Home />} />
-      <Route path="/contact" element={<ContactPage />} />
+      {/* <Route path="/contact" element={<ContactPage />} /> */}
       <Route path="/about" element={<AboutPage />} />
-      <Route path="/menu" element={<Menu />} />
+      {/* <Route path="/menu" element={<Menu />} /> */}
 
       {/* Payment verification */}
       <Route path="/myorder/verify" element={<VerifyPaymentPage />} />

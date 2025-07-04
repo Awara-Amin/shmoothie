@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { FaSearch, FaDownload, FaPlay, FaTimes } from 'react-icons/fa';
-import { bannerAssets } from '../../assets/dummydata';
-import "../../index.css";
+import React, { useState } from "react"
+import { FaSearch, FaDownload, FaPlay, FaTimes } from "react-icons/fa"
+import { bannerAssets } from "../../assets/dummydata"
+import "../../index.css"
 
 const Banner = () => {
-  const [showVideo, setShowVideo] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [showVideo, setShowVideo] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
 
-  const { bannerImage, orbitImages, video } = bannerAssets;
+  const { bannerImage, orbitImages, video } = bannerAssets
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    console.log('Searching for:', searchQuery);
-  };
+    e.preventDefault()
+    console.log("Searching for:", searchQuery)
+  }
 
   return (
     <div className="relative">
@@ -30,10 +30,14 @@ const Banner = () => {
             </h1>
 
             <p className="text-lg md:text-lg lg:text-xl font-playfair italic sm:text-xl text-amber-100 max-w-xl opacity-90 mx-auto md:mx-0">
-              Best cooks and best delivery guys all at your service. Hot tasty food will reach you in 60 minutes.
+              Best cooks and best delivery guys all at your service. Hot tasty
+              food will reach you in 60 minutes.
             </p>
 
-            <form onSubmit={handleSearch} className="relative max-w-2xl mx-auto md:mx-0 group">
+            <form
+              onSubmit={handleSearch}
+              className="relative max-w-2xl mx-auto md:mx-0 group"
+            >
               <div className="relative flex items-center bg-amber-900/30 rounded-xl border-2 border-amber-500/30 shadow-2xl hover:border-amber-400/50 transition-all duration-300">
                 <div className="pl-6 pr-3 py-4">
                   <FaSearch className="text-xl text-amber-400/80" />
@@ -65,7 +69,9 @@ const Banner = () => {
                 className="group flex items-center gap-3 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-amber-300/30"
               >
                 <FaPlay className="text-xl text-amber-900" />
-                <span className="text-lg text-amber-900 font-semibold">Watch Video</span>
+                <span className="text-lg text-amber-900 font-semibold">
+                  Watch Video
+                </span>
               </button>
             </div>
           </div>
@@ -87,7 +93,7 @@ const Banner = () => {
               <div
                 key={index}
                 className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                  ${index === 0 ? 'orbit' : `orbit-delay-${index * 5}`} 
+                  ${index === 0 ? "orbit" : `orbit-delay-${index * 5}`} 
                   w-[80px] xs:w-[100px] sm:w-[150px] h-[80px] xs:h-[100px] sm:h-[150px]`}
               >
                 <img
@@ -123,7 +129,7 @@ const Banner = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner
