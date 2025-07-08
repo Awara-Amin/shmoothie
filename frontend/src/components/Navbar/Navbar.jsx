@@ -72,9 +72,9 @@ const Navbar = () => {
     // { name: 'Menu', href: '/menu', icon: <FiBook /> },
     { name: "About", href: "/about", icon: <FiStar /> },
     // { name: 'Contact', href: '/contact', icon: <FiPhone /> },
-    ...(isAuthenticated
-      ? [{ name: "My Orders", href: "/myorder", icon: <FiPackage /> }]
-      : []),
+    // ...(isAuthenticated
+    //   ? [{ name: "My Orders", href: "/myorder", icon: <FiPackage /> }]
+    //   : []),
   ]
 
   const handleLoginSuccess = () => {
