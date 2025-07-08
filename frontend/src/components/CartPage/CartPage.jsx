@@ -2,14 +2,49 @@ import React, { useState } from "react"
 import { useCart } from "../../CartContext/CartContext"
 import { Link } from "react-router-dom"
 import { FaMinus, FaPlus, FaTrash, FaTimes } from "react-icons/fa"
+import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 // Base URL for serving uploaded images
-// const API_URL = "http://localhost:4000"
-const API_URL = "https://shmoothie-backend.onrender.com"
+const API_URL = "http://localhost:4000"
+// const API_URL = "https://shmoothie-backend.onrender.com"
 
 const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity, totalAmount } = useCart()
   const [selectedImage, setSelectedImage] = useState(null)
+  const [seatNumber, setSeatNumber] = useState("")
+
+  const navigate = useNavigate()
+
+  const token = localStorage.getItem("authToken")
+  const authHeaders = token ? { Authorization: `Bearer ${token}` } : {}
+
+  const goToCheckout = () => {
+    if (!seatNumber) {
+      alert("Please enter a seat number before checkout.")
+      return
+    }
+    // Optional loading and error state if needed
+    // const [loading, setLoading] = useState(false)
+    // const [error, setError] = useState("")
+    console.log("test-1-frontend")
+    // Reserve the seat
+    axios
+      .post(
+        "http://localhost:4000/api/seats/reserve", // or production endpoint
+        { number: seatNumber },
+        { headers: authHeaders }
+      )
+      .then(({ data }) => {
+        console.log("Seat reserved:", data)
+        // Navigate to checkout after success
+        navigate("/checkout", { state: { seatNumber } })
+      })
+      .catch((err) => {
+        console.error("Seat reservation error:", err)
+        alert("Seat reservation failed. Try another number or contact support.")
+      })
+  }
 
   // Helper to construct full image URL
   const buildImageUrl = (path) => {
@@ -68,7 +103,7 @@ const CartPage = () => {
                         {item.name}
                       </h3>
                       <p className="text-amber-100/80 font-cinzel mt-1">
-                        IQD {Number(item.price).toFixed(2)}
+                        {Number(item.price).toFixed(2)}
                       </p>
                     </div>
 
@@ -101,14 +136,14 @@ const CartPage = () => {
                         <span className="text-amber-100">Remove</span>
                       </button>
                       <p className="text-sm font-dancingscript text-amber-300">
-                        IQD {(Number(item.price) * quantity).toFixed(2)}
+                        {(Number(item.price) * quantity).toFixed(2)}
                       </p>
                     </div>
                   </div>
                 ))}
             </div>
 
-            <div className="mt-12 pt-8 border-t border-amber-800/30">
+            {/* <div className="mt-12 pt-8 border-t border-amber-800/30">
               <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
                 <Link
                   to="/menu"
@@ -128,6 +163,47 @@ const CartPage = () => {
                   </Link>
                 </div>
               </div>
+            </div> */}
+            <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
+              {/* Total Amount */}
+              <h2 className="text-3xl font-dancingscript text-amber-100 text-center sm:text-left">
+                Total: {totalAmount.toFixed(2)}
+              </h2>
+
+              {/* Seat Number Input */}
+              <div className="flex items-center justify-center sm:justify-start gap-2">
+                <label
+                  htmlFor="seat-count"
+                  className="text-amber-100 font-cinzel text-sm"
+                >
+                  Seat No:
+                </label>
+                <input
+                  type="number"
+                  id="seat-count"
+                  name="seat-count"
+                  min={1}
+                  value={seatNumber}
+                  onChange={(e) => setSeatNumber(e.target.value)}
+                  className="w-20 px-2 py-1 rounded-md bg-amber-900/40 text-amber-100 border border-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 text-center"
+                  placeholder="e.g. 5"
+                />
+              </div>
+
+              {/* Checkout Button */}
+              {/* <Link
+                to="/checkout"
+                className="bg-amber-900/40 px-8 py-3 rounded-full font-cinzel uppercase tracking-wider hover:bg-amber-800/50 transition duration-300 text-amber-100 flex items-center gap-2 active:scale-95"
+              >
+                Checkout Now
+              </Link> */}
+
+              <button
+                onClick={goToCheckout}
+                className="bg-amber-900/40 px-8 py-3 rounded-full font-cinzel uppercase tracking-wider hover:bg-amber-800/50 transition duration-300 text-amber-100 flex items-center gap-2 active:scale-95"
+              >
+                Checkout Now
+              </button>
             </div>
           </>
         )}

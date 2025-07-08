@@ -1,25 +1,35 @@
 // models/order.js
-import mongoose from 'mongoose';
+import mongoose from "mongoose"
 
-const orderItemSchema = new mongoose.Schema({
-  item: {
-    name: { type: String, required: true },
-    price: { type: Number, required: true, min: 0 },
-    imageUrl: { type: String, required: true }
+const orderItemSchema = new mongoose.Schema(
+  {
+    item: {
+      name: { type: String, required: true },
+      price: { type: Number, required: true, min: 0 },
+      imageUrl: { type: String, required: true },
+    },
+    quantity: { type: Number, required: true, min: 1 },
   },
-  quantity: { type: Number, required: true, min: 1 }
-}, { _id: true });
+  { _id: true }
+)
 
 const orderSchema = new mongoose.Schema({
   // User Information
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: "User",
   },
   email: { type: String, required: true, index: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   phone: { type: String, required: true },
+
+  // Seat Info (NEW)
+  seat: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "seat",
+    required: true,
+  },
 
   // Shipping Information
   address: { type: String, required: true },
@@ -33,17 +43,17 @@ const orderSchema = new mongoose.Schema({
   paymentMethod: {
     type: String,
     required: true,
-    enum: ['cod', 'online', 'card', 'upi'],
-    index: true
+    enum: ["cod", "online", "card", "upi"],
+    index: true,
   },
   paymentIntentId: { type: String },
   sessionId: { type: String, index: true },
   transactionId: { type: String },
   paymentStatus: {
     type: String,
-    enum: ['pending', 'succeeded', 'failed'],
-    default: 'pending',
-    index: true
+    enum: ["pending", "succeeded", "failed"],
+    default: "pending",
+    index: true,
   },
 
   // Order Calculations
@@ -55,25 +65,25 @@ const orderSchema = new mongoose.Schema({
   // Order Status Tracking
   status: {
     type: String,
-    enum: ['processing', 'outForDelivery', 'delivered'],
-    default: 'processing',
-    index: true
+    enum: ["processing", "outForDelivery", "delivered"],
+    default: "processing",
+    index: true,
   },
   expectedDelivery: Date,
   deliveredAt: Date,
 
   // Timestamps
   createdAt: { type: Date, default: Date.now, index: true },
-  updatedAt: { type: Date, default: Date.now }
-});
+  updatedAt: { type: Date, default: Date.now },
+})
 
-orderSchema.index({ user: 1, createdAt: -1 });
-orderSchema.index({ status: 1, paymentStatus: 1 });
+orderSchema.index({ user: 1, createdAt: -1 })
+orderSchema.index({ status: 1, paymentStatus: 1 })
 
-orderSchema.pre('save', function (next) {
-  this.updatedAt = new Date();
-  next();
-});
+orderSchema.pre("save", function (next) {
+  this.updatedAt = new Date()
+  next()
+})
 
-const Order = mongoose.model('Order', orderSchema);
-export default Order;
+const Order = mongoose.model("Order", orderSchema)
+export default Order

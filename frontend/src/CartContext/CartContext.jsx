@@ -62,8 +62,8 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem("authToken")
     axios
-      // .get('http://localhost:4000/api/cart', {
-      .get("https://shmoothie-backend.onrender.com/api/cart", {
+      .get("http://localhost:4000/api/cart", {
+        // .get("https://shmoothie-backend.onrender.com/api/cart", {
         withCredentials: true,
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -76,7 +76,8 @@ export const CartProvider = ({ children }) => {
   const addToCart = useCallback(async (item, qty) => {
     const token = localStorage.getItem("authToken")
     const res = await axios.post(
-      "https://shmoothie-backend.onrender.com/api/cart",
+      "http://localhost:4000/api/cart",
+      // "https://shmoothie-backend.onrender.com/api/cart",
       { itemId: item._id, quantity: qty },
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     )
@@ -86,7 +87,8 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = useCallback(async (_id, qty) => {
     const token = localStorage.getItem("authToken")
     const res = await axios.put(
-      `https://shmoothie-backend.onrender.com/api/cart/${_id}`,
+      // `https://shmoothie-backend.onrender.com/api/cart/${_id}`,
+      `http://localhost:4000/api/cart/${_id}`,
       { quantity: qty },
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     )
@@ -97,7 +99,8 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = useCallback(async (_id) => {
     const token = localStorage.getItem("authToken")
     await axios.delete(
-      `https://shmoothie-backend.onrender.com/api/cart/${_id}`,
+      `http://localhost:4000/api/cart/${_id}`,
+      //  `https://shmoothie-backend.onrender.com/api/cart/${_id}`,
       {
         withCredentials: true,
         headers: { Authorization: `Bearer ${token}` },
@@ -109,7 +112,8 @@ export const CartProvider = ({ children }) => {
   const clearCart = useCallback(async () => {
     const token = localStorage.getItem("authToken")
     await axios.post(
-      "https://shmoothie-backend.onrender.com/api/cart/clear",
+      "http://localhost:4000/api/cart/clear",
+      // "https://shmoothie-backend.onrender.com/api/cart/clear",
       {},
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     )

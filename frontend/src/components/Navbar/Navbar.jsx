@@ -108,7 +108,7 @@ const Navbar = () => {
           border-2 border-amber-500/20 flex items-center space-x-2 shadow-md shadow-amber-900/20 text-sm"
       >
         <FiKey className="text-base lg:text-lg" />
-        {/* <span>Login</span> */}
+
         <span>{t("login")}</span>
       </button>
     )
@@ -189,7 +189,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <div className="flex items-center space-x-2 xl:space-x-4 ml-2 xl:ml-4">
-              <NavLink
+              {/* <NavLink
                 to="/cart"
                 className="p-2 relative text-amber-100 hover:text-amber-300 transition-colors"
               >
@@ -199,8 +199,8 @@ const Navbar = () => {
                     {totalItems}
                   </span>
                 )}
-              </NavLink>
-              {renderDesktopAuthButton()}
+              </NavLink> */}
+              {/* {renderDesktopAuthButton()} */}
             </div>
           </div>
 

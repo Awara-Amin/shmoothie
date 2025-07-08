@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6"
 import { FiUser, FiSmartphone, FiMail, FiHome } from "react-icons/fi"
 import { FaUtensils } from "react-icons/fa"
 import { GiChefToque, GiFoodTruck } from "react-icons/gi"
+import { RiDrinks2Line } from "react-icons/ri"
 // import IA1 from "./IA1.png"
 // import IA2 from "./IA2.png"
 // import IA3 from "./IA3.png"
@@ -54,9 +55,9 @@ export const features = [
 
 export const stats = [
   {
-    number: "10M+",
-    label: "Deliveries",
-    icon: GiFoodTruck,
+    number: "The Best",
+    label: "Top Five In Erbil",
+    icon: RiDrinks2Line,
     gradient: "from-amber-500 via-orange-400 to-yellow-600",
   },
   {

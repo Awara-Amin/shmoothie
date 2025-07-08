@@ -21,14 +21,15 @@ const About = () => {
       >
         <div className="max-w-4xl mx-auto">
           <motion.h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 font-serif bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-yellow-600">
-            Culinary Express
+            Best Smoothie In Erbil
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-amber-100/80"
           >
-            Crafting unforgettable dining experiences delivered to your doorstep
+            We are a passionate team of young people dedicated to bringing joy
+            to our customers by serving the best smoothies in town
           </motion.p>
         </div>
       </motion.section>

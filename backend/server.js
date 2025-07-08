@@ -10,6 +10,7 @@ import userRouter from "./routes/userRoute.js"
 import cartRouter from "./routes/cartRoute.js"
 import itemRouter from "./routes/itemRoute.js"
 import orderRouter from "./routes/orderRoute.js"
+import seatRouter from "./routes/seatRoute.js"
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -21,11 +22,11 @@ const __dirname = path.dirname(__filename)
 app.use(
   cors({
     origin: (origin, callback) => {
-      // const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
-      const allowedOrigins = [
-        "https://shmoothie-frontend.onrender.com",
-        "https://shmoothie-admin.onrender.com",
-      ]
+      const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"]
+      // const allowedOrigins = [
+      //   "https://shmoothie-frontend.onrender.com",
+      //   "https://shmoothie-admin.onrender.com",
+      // ]
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true)
       } else {
@@ -48,6 +49,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 app.use("/api/cart", cartRouter)
 app.use("/api/items", itemRouter)
 app.use("/api/orders", orderRouter)
+app.use("/api/seats", seatRouter)
 
 app.get("/", (req, res) => {
   res.send("API WORKING")

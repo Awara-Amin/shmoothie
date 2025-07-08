@@ -5,6 +5,7 @@ import { FaMinus, FaPlus } from "react-icons/fa"
 import "./Om.css"
 ///AAA
 import { useTranslation } from "react-i18next"
+import { FaStar } from "react-icons/fa"
 
 const categories = [
   "Hot Drinks",
@@ -31,7 +32,8 @@ const OurMenu = () => {
     const fetchMenu = async () => {
       try {
         const res = await axios.get(
-          "https://shmoothie-backend.onrender.com/api/items"
+          "http://localhost:4000/api/items"
+          //  "https://shmoothie-backend.onrender.com/api/items"
         )
         // const res = await axios.get("http://localhost:4000/api/items")
         const byCategory = res.data.reduce((acc, item) => {
@@ -105,7 +107,7 @@ const OurMenu = () => {
                   <img
                     src={item.imageUrl || item.image}
                     alt={item.name}
-                    className="max-h-full max-w-full object-contain transition-all duration-700"
+                    className="max-h-full max-w-full object-contain transition-all duration-700 rounded-xl"
                   />
                 </div>
 
@@ -121,11 +123,24 @@ const OurMenu = () => {
                   {/* Price & Cart Controls */}
                   <div className="mt-auto flex items-center gap-4 justify-between">
                     <div className="bg-amber-100/10 backdrop-blur-sm px-3 py-1 rounded-2xl shadow-lg">
-                      <span className="text-xl font-bold text-amber-300 font-dancingscript">
+                      <span className="text-lg font-bold text-amber-300 font-dancingscript">
                         IQD {Number(item.price).toFixed(2)}
                       </span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <FaStar
+                          key={i}
+                          className={`text-sm ${
+                            i < item.rating
+                              ? "text-amber-400"
+                              : "text-amber-100/30"
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* <div className="flex items-center gap-2">
                       {quantity > 0 ? (
                         <>
                           <button
@@ -158,7 +173,7 @@ const OurMenu = () => {
                           Add to Cart
                         </button>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
