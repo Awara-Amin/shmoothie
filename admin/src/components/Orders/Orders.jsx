@@ -19,8 +19,8 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/orders/getall",
-          // "https://shmoothie-backend.onrender.com/api/orders/getall",
+          // "http://localhost:4000/api/orders/getall",
+          "https://shmoothie-backend.onrender.com/api/orders/getall",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -62,12 +62,13 @@ const Orders = () => {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      await axios.put(`http://localhost:4000/api/orders/getall/${orderId}`, {
-        // await axios.put(
-        //   `https://shmoothie-backend.onrender.com/api/orders/getall/${orderId}`,
-        //   {
-        status: newStatus,
-      })
+      // await axios.put(`http://localhost:4000/api/orders/getall/${orderId}`, {
+      await axios.put(
+        `https://shmoothie-backend.onrender.com/api/orders/getall/${orderId}`,
+        {
+          status: newStatus,
+        }
+      )
       setOrders(
         orders.map((o) => (o._id === orderId ? { ...o, status: newStatus } : o))
       )
@@ -185,8 +186,8 @@ const Orders = () => {
                                 className="flex items-center gap-3 p-2 rounded-lg"
                               >
                                 <img
-                                  src={`http://localhost:4000${itm.item.imageUrl}`}
-                                  // src={`https://shmoothie-backend.onrender.com${itm.item.imageUrl}`}
+                                  // src={`http://localhost:4000${itm.item.imageUrl}`}
+                                  src={`https://shmoothie-backend.onrender.com${itm.item.imageUrl}`}
                                   alt={itm.item.name}
                                   className="w-10 h-10 object-cover rounded-lg"
                                 />

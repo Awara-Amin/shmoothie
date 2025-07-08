@@ -14,10 +14,10 @@ const ListItems = () => {
     const fetchItems = async () => {
       try {
         // https://shmoothie-backend.onrender.com
-        const { data } = await axios.get("http://localhost:4000/api/items")
-        // const { data } = await axios.get(
-        //   "https://shmoothie-backend.onrender.com/api/items"
-        // )
+        // const { data } = await axios.get("http://localhost:4000/api/items")
+        const { data } = await axios.get(
+          "https://shmoothie-backend.onrender.com/api/items"
+        )
         setItems(data)
       } catch (err) {
         console.error("Error fetching items:", err)
