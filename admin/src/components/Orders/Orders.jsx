@@ -195,7 +195,7 @@ const Orders = () => {
                                     {itm.item.name}
                                   </span>
                                   <div className="flex items-center gap-2 text-xs text-amber-400/60">
-                                    <span>₹{itm.item.price.toFixed(2)}</span>
+                                    <span>IQD{itm.item.price.toFixed(2)}</span>
                                     <span>•</span>
                                     <span>x{itm.quantity}</span>
                                   </div>
@@ -217,7 +217,7 @@ const Orders = () => {
                             tableClasses.cellBase + " text-amber-300 text-lg"
                           }
                         >
-                          ₹{totalPrice.toFixed(2)}
+                          IQD{totalPrice.toFixed(2)}
                         </td>
                         <td className={tableClasses.cellBase}>
                           <div className="flex flex-col gap-2">

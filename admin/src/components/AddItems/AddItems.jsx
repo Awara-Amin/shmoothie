@@ -174,10 +174,10 @@ const AddItems = () => {
                   </div>
                   <div>
                     <label className="block mb-2 text-base sm:text-lg text-amber-400">
-                      Price (₹)
+                      Price (IQD)
                     </label>
                     <div className={styles.relativeInput}>
-                      <FaRupeeSign className={styles.rupeeIcon} />
+                      {/* <FaRupeeSign className={styles.rupeeIcon} /> */}
                       <input
                         type="number"
                         name="price"
