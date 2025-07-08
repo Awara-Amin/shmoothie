@@ -21,8 +21,8 @@ const SpecialOffer = () => {
   // Fetch menu items
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/items")
-      //  .get("https://shmoothie-backend.onrender.com/api/items")
+      // .get("http://localhost:4000/api/items")
+      .get("https://shmoothie-backend.onrender.com/api/items")
       .then((res) => setItems(res.data.items ?? res.data))
       .catch((err) => console.error(err))
   }, [])

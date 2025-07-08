@@ -32,8 +32,8 @@ const VerifyPaymentPage = () => {
     // Stripe says success=true & we have a session_id:
     axios
 
-      //  .get("https://shmoothie-backend.onrender.com/api/orders/confirm", {
-      .get("http://localhost:4000/api/orders/confirm", {
+      .get("https://shmoothie-backend.onrender.com/api/orders/confirm", {
+        // .get("http://localhost:4000/api/orders/confirm", {
         params: { session_id },
         headers: authHeaders,
       })

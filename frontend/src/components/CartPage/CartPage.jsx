@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
 // Base URL for serving uploaded images
-const API_URL = "http://localhost:4000"
-// const API_URL = "https://shmoothie-backend.onrender.com"
+// const API_URL = "http://localhost:4000"
+const API_URL = "https://shmoothie-backend.onrender.com"
 
 const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity, totalAmount } = useCart()

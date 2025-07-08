@@ -32,8 +32,8 @@ const OurMenu = () => {
     const fetchMenu = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:4000/api/items"
-          //  "https://shmoothie-backend.onrender.com/api/items"
+          // "http://localhost:4000/api/items"
+          "https://shmoothie-backend.onrender.com/api/items"
         )
         // const res = await axios.get("http://localhost:4000/api/items")
         const byCategory = res.data.reduce((acc, item) => {

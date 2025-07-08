@@ -38,8 +38,8 @@ const OurMenuHome = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/items")
-      // .get("https://shmoothie-backend.onrender.com/api/items")
+      // .get("http://localhost:4000/api/items")
+      .get("https://shmoothie-backend.onrender.com/api/items")
       .then((res) => {
         const grouped = res.data.reduce((acc, item) => {
           acc[item.category] = acc[item.category] || []
